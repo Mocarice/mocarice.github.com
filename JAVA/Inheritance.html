@@ -10,18 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../main.css">
     <script src="../includeHTML.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="wrapper">
         <!-- Sidebar  -->
-        <nav id="sidebar" include-html="../sidebar.html"></nav>
+        <nav include-html="../sidebar.html" id="sidebar"></nav>
 
         <!-- Page Content  -->
         <div id="content">
@@ -36,6 +29,11 @@
     </div>
 </body>
 <script>
+    $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+    });
     includeHTML();
 </script>
 </html>
