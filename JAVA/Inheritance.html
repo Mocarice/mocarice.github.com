@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mocarice IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <script>
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><a href="../index.html">Mocarice IT</a></h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p>BACK-END</p>
+                <li>
+                    <a href="#javaSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">JAVA</a>
+                    <ul class="collapse list-unstyled" id="javaSubmenu">
+                        <li>
+                            <a href="#OOP" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">객체지향</a>
+                            <ul class="collapse list-unstyled" id="OOP">
+                                <li>
+                                    <a href="#">상속</a>
+                                </li>
+                                <li>
+                                    <a href="#">추상화</a>
+                                </li>
+                                <li>
+                                    <a href="#">캡슐화</a>
+                                </li>
+                                <li>
+                                    <a href="#">다형성</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Home 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Home 3</a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li>
+                    <a href="#springSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Spring</a>
+                    <ul class="collapse list-unstyled" id="springSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#databaseSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Database</a>
+                    <ul class="collapse list-unstyled" id="databaseSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="list-unstyled components">
+                <p>FRONT-END</p>
+                <li>
+                    <a href="#HTMLSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">HTML</a>
+                    <ul class="collapse list-unstyled" id="HTMLSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#CSSSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CSS</a>
+                    <ul class="collapse list-unstyled" id="CSSSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#javaScriptSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">JavaScript</a>
+                    <ul class="collapse list-unstyled" id="javaScriptSubmenu">
+                        <li>
+                            <a href="#">Page 1</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 2</a>
+                        </li>
+                        <li>
+                            <a href="#">Page 3</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+                </li>
+                <li>
+                    <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Toggle Sidebar</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <h2>JAVA - 객체지향 - 상속</h2>
+            
+
+            <div class="line"></div>
+
+            <h2>상속이란</h2>
+            <p>부모클래스의 객체들을 자식클래스에서도 사용할 수 있게 하는걸 뜻한다.</p>
+        </div>
+    </div>
+</body>
+</html>
