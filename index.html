@@ -36,6 +36,18 @@
                 console.log("눌러짐?");
                 $('#sidebar').toggleClass('active');
             });
+            $("#inheritance").click(function() {
+                $.ajax({
+                    url : "JAVA/inheritance.html",
+                    success : function(result) {
+                        var refine = $("#content").html(result).find('div');
+                        console.log(result);
+                        console.log(refine);
+                        console.log(typeof(refine));
+                        $("#content").html(refine);
+                    }
+                })
+            });
     });
     includeHTML();
 </script>
