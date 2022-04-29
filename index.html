@@ -37,6 +37,7 @@
                 $('#sidebar').toggleClass('active');
             });
             $("#inheritance").click(function() {
+                console.log("ajax 눌러짐");
                 $.ajax({
                     url : "JAVA/inheritance.html",
                     success : function(result) {
