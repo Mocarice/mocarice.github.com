@@ -26,7 +26,7 @@
 <h3>Annotation 사용 코드</h3>
 <pre>
     <code>
-        final Reflections reflections = new Reflections("com.alan.verticle");
+        final Reflections reflections = new Reflections("Annotation 정의한 패키지");
         final Set<Class<?>> verticles = reflections.getTypesAnnotatedWith(Verticle.class);
         for (Class<?> verticle : verticles) {
             Verticle annotation = verticle.getAnnotation(Verticle.class);
