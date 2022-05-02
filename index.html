@@ -41,46 +41,18 @@
         $('#sidebarCollapse').on('click', function() {
             $('#sidebar').toggleClass('active');
         });
-
-        $("#inheritance").click(function() {
-            $.ajax({
-                url : "JAVA/inheritance.html",
-                success : function(result) {
-                    //var refine = $("#subContent").html(result).find();
-                    $("#subContent").html(result);
-                }
-            })
-        });
-
-        $("#abstraction").click(function() {
-            $.ajax({
-                url : "JAVA/abstraction.html",
-                success : function(result) {
-                    //var refine = $("#subContent").html(result).find();
-                    $("#subContent").html(result);
-                }
-            })
-        });
-
-        $("#encapsulation").click(function() {
-            $.ajax({
-                url : "JAVA/encapsulation.html",
-                success : function(result) {
-                    //var refine = $("#subContent").html(result).find();
-                    $("#subContent").html(result);
-                }
-            })
-        });
-
-        $("#polymorphism").click(function() {
-            $.ajax({
-                url : "JAVA/polymorphism.html",
-                success : function(result) {
-                    //var refine = $("#subContent").html(result).find();
-                    $("#subContent").html(result);
-                }
-            })
-        });
     });
+    function move(click_id){
+        var file = document.getElementById(click_id);
+        var depth = file.parentElement.parentElement
+        var root = depth.parentElement.parentElement
+        $.ajax({
+            url : root.id+"/"+depth.id+"/"+click_id+".html",
+            success : function(result) {
+                //var refine = $("#subContent").html(result).find();
+                $("#subContent").html(result);
+            }
+        });
+    }
 </script>
 </html>

@@ -1,0 +1,39 @@
+<h2>Annotation으로 Vert.x 데몬 config 설정</h2>
+<div class="line"></div>
+<h3>pom.xml 설정</h3>
+<pre>
+    <code>
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.reflections&lt;/groupId&gt;
+            &lt;artifactId&gt;reflections&lt;/artifactId&gt;
+            &lt;version&gt;0.9.10&lt;/version&gt;
+        &lt;/dependency&gt;
+    </code>
+</pre><br><br>
+<h3>Annotation 구현 코드</h3>
+<pre>
+    <code>
+        @Retention(RetentionPolicy.RUNTIME)
+        @Target(ElementType.TYPE)
+        public @interface Verticle {
+            boolean isWorker() default true;
+            int instance() default 1;
+            int poolSize() default 100;
+        }
+    </code>
+</pre>
+<br><br>
+<h3>Annotation 사용 코드</h3>
+<pre>
+    <code>
+        final Reflections reflections = new Reflections("com.alan.verticle");
+        final Set<Class<?>> verticles = reflections.getTypesAnnotatedWith(Verticle.class);
+        for (Class<?> verticle : verticles) {
+            Verticle annotation = verticle.getAnnotation(Verticle.class);
+            DeploymentOptions deploymentOptions = new DeploymentOptions();
+            deploymentOptions.setInstances(annotation.instance());
+            deploymentOptions.setWorker(annotation.isWorker());
+            deploymentOptions.setWorkerPoolSize(annotation.poolSize());
+        }
+    </code>
+</pre>
