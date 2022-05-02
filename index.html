@@ -32,64 +32,49 @@
 </body>
 <script>
     $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                console.log("눌러짐?");
-                $('#sidebar').toggleClass('active');
-            });
+            
     });
     
     includeHTML(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
+        });
+
         $("#inheritance").click(function() {
-            console.log("ajax 눌러짐");
             $.ajax({
                 url : "JAVA/inheritance.html",
                 success : function(result) {
                     var refine = $("#content").html(result).find('div');
-                    console.log(result);
-                    console.log(refine);
-                    console.log(typeof(refine));
                     $("#content").html(refine);
                 }
             })
         });
 
         $("#abstraction").click(function() {
-            console.log("ajax 눌러짐");
             $.ajax({
                 url : "JAVA/abstraction.html",
                 success : function(result) {
                     var refine = $("#content").html(result).find('div');
-                    console.log(result);
-                    console.log(refine);
-                    console.log(typeof(refine));
                     $("#content").html(refine);
                 }
             })
         });
 
         $("#encapsulation").click(function() {
-            console.log("ajax 눌러짐");
             $.ajax({
                 url : "JAVA/encapsulation.html",
                 success : function(result) {
                     var refine = $("#content").html(result).find('div');
-                    console.log(result);
-                    console.log(refine);
-                    console.log(typeof(refine));
                     $("#content").html(refine);
                 }
             })
         });
 
         $("#polymorphism").click(function() {
-            console.log("ajax 눌러짐");
             $.ajax({
                 url : "JAVA/polymorphism.html",
                 success : function(result) {
                     var refine = $("#content").html(result).find('div');
-                    console.log(result);
-                    console.log(refine);
-                    console.log(typeof(refine));
                     $("#content").html(refine);
                 }
             })
