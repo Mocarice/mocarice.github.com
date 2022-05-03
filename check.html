@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mocarice IT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./main.css" crossorigin="anonymous">
+    <script	src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+    <script src="./includeHTML.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <input id="loginId" placeholder="아이디를 입력해주세요" value=""/>
+    <input id="loginPwd" placeholder="비밀번호를 입력해주세요" type="password" value=""/><br>
+    <button onclick="adminCheck()">주인장 로그인</button>
+    <button onclick="guestCheck()">게스트 로그인</button>
+</body>
+<script>
+    $(document).ready(function(){
+        
+    });
+    function adminCheck(){
+            if($("#loginId").val() == "" || $("#loginId").val() == null){
+                alert("아이디를 입력해주세요");
+                $("#loginId").focus();
+            }else if($("#loginPwd").val() == "" || $("#loginPwd").val() == null){
+                alert("비밀번호를 입력해주세요");
+                $("#loginPwd").focus();
+            }else if($("#loginId").val() == "hwan5176" && sha256($("#loginPwd").val()) == "2c88be4ff6b3eb354ce4a6ac13813ae3aacabb0f0d571cce1c299fccdb9db136"){
+                sessionStorage.clear();
+                var token = $("#loginId").val() + $("#loginPwd").val();
+                sessionStorage.setItem("token",token);
+                alert("주인장 로그인 확인");
+                location.href = "./index.html";
+            }else{
+                alert("다시 입력하시거나 게스트 로그인을 이용해 주세요.");
+                $("#loginId").val("");
+                $("#loginPwd").val("")
+                $("#loginId").focus();
+            }
+        }
+        function guestCheck(){
+            sessionStorage.clear();
+            sessionStorage.setItem("token","guest");
+            alert("방문해주셔서 감사합니다~");
+            location.href = "./index.html";
+        }
+</script>
