@@ -1,0 +1,92 @@
+<button id="add">추가</button><button id="remove">삭제</button><br>
+<input type="text" placeholder="대제목" name="mainTitle" value=""/><br>
+<p id="1" >
+    <input type="text" placeholder="소제목1" name="subTitle1" value=""/><br>
+    <textarea cols="50" rows="10" placeholder="코드1" name="code1" value=""></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용1" name="content1" value=""></textarea><br>
+</p>
+<p id="2" style="display: none;">
+    <input type="text" placeholder="소제목2" name="subTitle2" value=""/><br>
+    <textarea cols="50" rows="10" placeholder="코드2" name="code2" value=""></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용2" name="content2" value=""></textarea><br>
+</p>
+<p id="3" style="display: none;">
+    <input type="text" placeholder="소제목3" name="subTitle3" value=""/><br>
+    <textarea cols="50" rows="10" placeholder="코드3" name="code3" value=""></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용3" name="content3" value=""></textarea><br>
+</p>
+<p id="4" style="display: none;">
+    <input type="text" placeholder="소제목4" name="subTitle4"/><br>
+    <textarea cols="50" rows="10" placeholder="코드4" name="code4"></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용4" name="content4"></textarea><br>
+</p>
+<p id="5" style="display: none;">
+    <input type="text" placeholder="소제목5" name="subTitle5"/><br>
+    <textarea cols="50" rows="10" placeholder="코드5" name="code5"></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용5" name="content5"></textarea><br>
+</p>
+<p id="6" style="display: none;">
+    <input type="text" placeholder="소제목6" name="subTitle6"/><br>
+    <textarea cols="50" rows="10" placeholder="코드6" name="code6"></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용6" name="content6"></textarea><br>
+</p>
+<p id="7" style="display: none;">
+    <input type="text" placeholder="소제목7" name="subTitle7"/><br>
+    <textarea cols="50" rows="10" placeholder="코드7" name="code7"></textarea><br>
+    <textarea cols="50" rows="10" placeholder="내용7" name="content7"></textarea><br>
+</p>
+
+
+
+
+
+
+<button id="confirm">작성 완료</button>
+<a id="link" target="_blank" download="unnamed.html">Download</a>
+ 
+ 
+<script language = "javascript">
+    let i=1;
+    $("#add").click(function(){
+        i++;
+        $("#"+i).show();
+    });
+    $("#remove").click(function(){
+        $("#"+i).hide();
+        i--;
+    });
+
+    var file;
+    var data = [];
+    var url;
+    $("#confirm").click(function(){
+        data.push("<h2>"+$("input[name=mainTitle]").val()+"</h2>"+"\n");
+        data.push("<div class='line'></div>\n");
+        for(var j=1;j<i+1;j++){
+            data.push("<h3>"+$("input[name=subTitle"+j+"]").val()+"</h2>"+"\n");
+            data.push("<pre><code>"+$("textarea[name=code"+j+"]").val()+"</code></pre>"+"\n");
+            data.push("<p>"+$("textarea[name=content"+j+"]").val()+"<p>"+"\n");
+        }
+        
+        
+        var sFileName = "file_test.html";
+        
+        var properties = {type: 'text/plain'}; // Specify the file's mime-type.
+        try {
+        // Specify the filename using the File constructor, but ...
+        file = new File(data, sFileName, properties);
+        } catch (e) {
+        // ... fall back to the Blob constructor if that isn't supported.
+        file = new Blob(data, properties);
+        }
+
+        url = URL.createObjectURL(file);
+
+        document.getElementById('link').href = url;
+    });
+
+    
+    
+ 
+ 
+</script>
