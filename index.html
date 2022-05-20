@@ -34,7 +34,7 @@
     </div>
 </body>
 <script>
-    $(document).ready(function () {
+    $(function () {
         var token = sessionStorage.getItem("token");
         if(token == "" || token == undefined || token == null){
             alert("주인장 로그인 혹은 게스트로 입장해주세요!");
@@ -44,7 +44,6 @@
             $("#AdminSubmenu").hide();
         }
     });
-    
     includeHTML(function() {
         $('#sidebarCollapse').on('click', function() {
             $('#sidebar').toggleClass('active');
